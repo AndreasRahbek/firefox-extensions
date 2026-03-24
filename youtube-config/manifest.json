@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "YoutubeConfig",
+  "version": "1.0",
+  "description": "Configures youtube.com to your needs. Remove shorts, customize landing page etc.",
+  "icons": {
+    "48": "icons/YoutubeConfig-48.png"
+  },
+  "permissions": ["storage"],
+  "action": { 
+    "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "beastify@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["consts.js", "youtube-config.js"]
+    }
+  ]
+}
