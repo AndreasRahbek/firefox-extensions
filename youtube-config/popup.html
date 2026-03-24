@@ -5,15 +5,30 @@
 <body>
     <h3>YouTube Cleaner</h3>
 
-    <label>
-        <input type="checkbox" id="homeShorts">
-        Remove Homepage Shorts
-    </label>
+    <fieldset>
+        <legend>Home Page</legend>
+        <label>
+            <input type="checkbox" id="homeShortsCheckBox">
+            Remove Homepage Shorts
+        </label>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Side Panel</legend>
+        <label>
+            <input type="checkbox" id="sidePanelShortsCheckBox"> Remove Side Panel Shorts
+        </label>
+    </fieldset>
   
-    <label>
-        <input type="checkbox" id="watchShorts"> Remove Watch Page Shorts 
-        <input type="checkbox" id="watchDescription"> Remove description bloat
-    </label>
+    <fieldset>
+        <legend>Watch Page</legend>
+        <label>
+            <input type="checkbox" id="watchShortsCheckBox"> Remove Watch Page Shorts 
+        </label>
+        <label>
+            <input type="checkbox" id="watchDescriptionCheckBox"> Remove Description Bloat
+        </label>
+    </fieldset>
 
     <script src="consts.js"></script>
     <script src="popup.js"></script>

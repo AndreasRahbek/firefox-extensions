@@ -4,8 +4,7 @@ function removeWatchPageShorts() {
     const style = document.createElement("style"); 
     style.id = "watch-shorts-style";
     style.textContent = `
-        ytd-reel-shelf-renderer
-         {
+        ytd-reel-shelf-renderer {
             display: none !important;
         }`;
     document.head.appendChild(style);
@@ -17,11 +16,14 @@ function removeWatchPageDescriptionBloat() {
     const style = document.createElement("style");
     style.id = "watch-description-style";
     style.textContent = `
-        ytd-watch-metadata { 
+        div[slot="extra-content"],
+        div[id="subscribe-button"],
+        div[id="sponsor-button"]
+        { 
             display: none !important; 
         }`;
     
-        document.head.appendChild(style);
+    document.head.appendChild(style);
 
 }
 
@@ -40,14 +42,11 @@ function removeHomePageShorts() {
     document.head.appendChild(style);
 }
 
-
-
-
 function handleWatchPage(shortsDisabled, descriptionBloatDisabled) {
     const urlPath = window.location.pathname;
 
     if (urlPath.startsWith("/watch")) {
-        shortsDisabled ? removeWatchPageShorts() : document.getElementById("watch-shorts-style")?.remove();
+        shortsDisabled ?  removeWatchPageShorts() : document.getElementById("watch-shorts-style")?.remove();
         descriptionBloatDisabled
             ? removeWatchPageDescriptionBloat()
             : document.getElementById("watch-description-style")?.remove();
@@ -67,9 +66,13 @@ function handleHomePage(enabled) {
     }
 }
 
+function handleSidePanel(shortsDisabled) { 
+    
+}
+
 function handleAllFeatures(settings) {
-    handleWatchPage(settings.watchShorts ?? true, settings.watchDescription ?? true);
-    handleHomePage(settings.homeShorts ?? true);
+    handleWatchPage(settings.watchShortsCheckBox ?? true, settings.watchDescriptionCheckBox ?? true);
+    handleHomePage(settings.homeShortsCheckBox ?? true);
 }
 
 // Initial run

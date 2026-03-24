@@ -1,1 +1,6 @@
-const SETTINGS_IDS = ["watchShorts", "watchDescription", "homeShorts"];
+const SETTINGS_IDS = [
+    "watchShortsCheckBox", 
+    "watchDescriptionCheckBox", 
+    "homeShortsCheckBox", 
+    "sidePanelShortsCheckBox"
+];

@@ -1,23 +1,23 @@
-const homeCheckbox = document.getElementById("homeShorts");
-const watchShortsCheckbox = document.getElementById("watchShorts");
-const watchDescriptionCheckBox = document.getElementById("watchDescription");
+const homeCheckBox = document.getElementById("homeShortsCheckBox");
+const watchShortsCheckBox = document.getElementById("watchShortsCheckBox");
+const watchDescriptionCheckBox = document.getElementById("watchDescriptionCheckBox");
 
 // Load saved state
 browser.storage.local.get(SETTINGS_IDS).then((result) => {
-    homeCheckbox.checked = result.homeShorts ?? true;
-    watchShortsCheckbox.checked = result.watchShorts ?? true;
-    watchDescriptionCheckBox.checked = result.watchDescription ?? true;
+    homeCheckBox.checked = result.homeShortsCheckBox ?? true;
+    watchShortsCheckBox.checked = result.watchShortsCheckBox ?? true;
+    watchDescriptionCheckBox.checked = result.watchDescriptionCheckBox ?? true;
 });
 
 // Save on change
-homeCheckbox.addEventListener("change", () => {
-    browser.storage.local.set({ homeShorts: homeCheckbox.checked });
+homeCheckBox.addEventListener("change", () => {
+    browser.storage.local.set({ homeShortsCheckBox: homeCheckBox.checked });
 });
 
-watchShortsCheckbox.addEventListener("change", () => {
-    browser.storage.local.set({ watchShorts: watchShortsCheckbox.checked });
+watchShortsCheckBox.addEventListener("change", () => {
+    browser.storage.local.set({ watchShortsCheckBox: watchShortsCheckBox.checked });
 });
 
 watchDescriptionCheckBox.addEventListener("change", () => { 
-    browser.storage.local.set({ watchDescription: watchDescriptionCheckBox.checked })
+    browser.storage.local.set({ watchDescriptionCheckBox: watchDescriptionCheckBox.checked })
 })
